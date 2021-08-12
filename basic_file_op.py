@@ -55,5 +55,5 @@ try:
 
     raise Found
 except Found:
-  #rmtree('zip')
+  rmtree('zip')
   pass

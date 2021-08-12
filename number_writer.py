@@ -4,4 +4,4 @@ filename='numbers.json'
 with open(filename,'w') as f:
     json.dump(numbers,f)
 with open(filename,'r') as f:
-    print(f.read())
+    print(json.load(f))
