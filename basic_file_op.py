@@ -1,15 +1,20 @@
-from os import walk,mkdir,remove
-import os,time
-from shutil import copy,move,rmtree
-
+from os import walk, mkdir, remove
+import os
 import time
-path= 'txt'
-count=0
-files100=[]
+from shutil import copy, move, rmtree
+
+
+path = 'txt'
+count = 0
+files100 = []
+
+
 class Found(Exception):
     pass
+
+
 try:
-    for filepath,folders,files in walk(path):
+    for filepath, folders, files in walk(path):
 
 
             # for file in files:
@@ -37,7 +42,7 @@ try:
         #     if count==5:
         #         raise Found
         for file in files:
-            createtime=os.path.getmtime(os.path.join(filepath,file))
+            createtime = os.path.getmtime(os.path.join(filepath, file))
             #print(os.path.join(filepath,file),type(createtime))
             real_time=time.localtime(createtime)
             dt=time.strftime("%Y-%m-%d %H:%M",real_time)
@@ -55,5 +60,5 @@ try:
 
     raise Found
 except Found:
-  rmtree('zip')
-  pass
+    #rmtree('zip')
+    pass
